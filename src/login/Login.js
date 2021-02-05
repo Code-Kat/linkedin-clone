@@ -11,6 +11,7 @@ function Login() {
     const [name, setName] = useState("");
     const [profilePic, setProfilePic] = useState ("")
     const dispatch = useDispatch();
+    const profilePicOption = profilePic ? profilePic : null;
 
     const register= () => {
         if (!name) {
@@ -19,23 +20,36 @@ function Login() {
         
         auth.createUserWithEmailAndPassword(email, password)
             .then((userAuth) => {
+                console.log("updated profile")
                 userAuth.user.updateProfile({
                     displayName:name,
-                    photoURL:profilePic,
+                    photoURL:profilePicOption,
                 })
                 .then(()=> {
                     dispatch(login({
                         email: userAuth.user.email,
                         user: userAuth.user.uid,
-                        dissplayName: name,
-                        photoUrl: profilePic
+                        displayName: name,
+                        photoUrl: profilePicOption,
                     }));
                  });
-        }).catch((error) => alert(error.message))
+        }).catch((error) => alert(error))
     };
+
     const loginToApp = (e) => {
         e.preventDefault();
-    }
+
+        auth.signInWithEmailAndPassword(email, password)
+        .then(userAuth => {
+             dispatch(login({
+                 email: userAuth.user.email,
+                 uid: userAuth.user.uid,
+                 displayName: userAuth.user.displayName,
+                 profileUrl: userAuth.user.profileURL,
+             }))
+         })
+        .catch(error => alert (error+'  If you do not have an account, please fill in your information and click "Register now".'))
+    };
 
     return (
         <div className="login">
