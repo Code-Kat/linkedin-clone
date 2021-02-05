@@ -7,6 +7,7 @@ import Feed from './body/Feed';
 import { login, logout, selectUser } from './features/userSlice';
 import Login from "./login/Login";
 import { auth } from "./body/firebase";
+import Widgets from "./body/Widgets";
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
         <div className="app__body">
         <Sidebar />
         <Feed />
-        {/* <Widtgets /> */}
+        <Widgets/>
         </div>
       )}
         

@@ -7,10 +7,10 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { logout, selectUser } from '../features/userSlice';
+import { logout } from '../features/userSlice';
 import { useDispatch } from "react-redux";
 import { auth } from '../body/firebase';
-import { useSelector } from "react-redux";
+
 
 function Header() {
 

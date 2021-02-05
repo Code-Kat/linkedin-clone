@@ -43,7 +43,6 @@ function Feed() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        console.log (user);
         setInput('');
     };
 
