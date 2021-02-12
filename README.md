@@ -1,1 +1,1 @@
-This is a LinkedIn clone that is fully responsive and uses firebase login as well as redux. 
+This is a fully responsibe LinkedIn (pc version) clone that uses firebase login as well as redux. 
